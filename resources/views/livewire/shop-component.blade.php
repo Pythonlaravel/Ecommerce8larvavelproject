@@ -65,7 +65,7 @@
 								<div class="product product-style-3 equal-elem ">
 									<div class="product-thumnail">
 										<a href="detail.html" title="{{$product->name}}">
-											<figure><img src="{{asset('assets/images/products')}}/{{$product_image}}" alt="{{$product->name}}"></figure>
+											<figure><img src="{{asset('assets/images/products')}}/{{$product->image}}" alt="{{$product->name}}"></figure>
 										</a>
 									</div>
 									<div class="product-info">
