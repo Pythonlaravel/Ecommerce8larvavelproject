@@ -6,6 +6,7 @@ use App\Http\Livewire\Homecomponent;
 use App\Http\Livewire\Shopcomponent;
 use App\Http\Livewire\Cartcomponent;
 use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -36,6 +37,15 @@ Route::get('/checkout',Checkoutcomponent::class);
 // })->name('dashboard');
 
 
+// There is a closed issue present in laravel github issues however you can try something like this:
+// Route::get('products/{product:slug}', 'ProducController@show')->name('product.show'); // Finds product by slug.
+// Route::get('products/{product}', 'ProducController@show')->name('product.show'); // Finds Product by ID (or whatever is defined in getRouteKeyName()).
+
+// route('product.show', $product) -> store.com/product/my-awesome-product
+// route('product.show', $product) -> store.com/product/1
+Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
+
+
 // For user or customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/user/dasboard', UserDashboardComponent::class)->name('user.dashboard');
@@ -45,4 +55,3 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     Route::get('/admin/dasboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
-
