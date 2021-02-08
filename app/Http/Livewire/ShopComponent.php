@@ -12,6 +12,7 @@ class ShopComponent extends Component
     public function render()
     {
         $products = Product::paginate(12);
+        //return $products;
         return view('livewire.shop-component',['products'=> $products])->layout("layouts.base");
     }
 }

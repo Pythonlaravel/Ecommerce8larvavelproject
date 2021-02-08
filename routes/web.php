@@ -43,7 +43,7 @@ Route::get('/checkout',Checkoutcomponent::class);
 
 // route('product.show', $product) -> store.com/product/my-awesome-product
 // route('product.show', $product) -> store.com/product/1
-Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
+Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 
 // For user or customer

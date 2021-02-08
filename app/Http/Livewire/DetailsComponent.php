@@ -15,9 +15,14 @@ class DetailsComponent extends Component
     public function render()
     {
         $product = Product::where('slug',$this->slug)->first();
+
+        //return view('livewire.details-component',['product'=>$product])->layout('layouts.base');
+
         // For making the remainging products dynamic.
+        
         $popular_products = Product::inRandomOrder()->limit(4)->get();
-        $related_products = Product::where('category_id',$product->category_id)->inRandomOrder()->limit(5)->get();
-        return view('livewire.details-component',['product'=>$product,'popular_products'=>$popular_products,'popular_products'=>$popular_products])->layout('layouts.base');
+        $related_products = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(5)->get();
+        return view('livewire.details-component', ['product'=>$product, 'popular_products'=>$popular_products, 'related_products'=>$related_products])->layout('layouts.base');
+        
     }
 }
