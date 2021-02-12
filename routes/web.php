@@ -26,7 +26,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 // });
 Route::get('/',Homecomponent::class);
 Route::get('/shop',Shopcomponent::class);
-Route::get('/cart',Cartcomponent::class);
+Route::get('/cart',Cartcomponent::class)->name('product.cart');
 Route::get('/checkout',Checkoutcomponent::class);
 
 
