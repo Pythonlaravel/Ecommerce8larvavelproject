@@ -95,9 +95,9 @@
 						<h2 class="widget-title">All Categories</h2>
 						<div class="widget-content">
 							<ul class="list-category">
-								@foreach ($cateogries as $category)
+								@foreach ($categories as $category)
 								<li class="category-item">
-									<a href="{{route('product.category',['category_slug'=>$category_slug])}}" class="cate-link">{{$category->name}}</a>
+									<a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="cate-link">{{$category->name}}</a>
 								</li>
 								@endforeach
 							</ul>
