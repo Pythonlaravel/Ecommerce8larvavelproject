@@ -13,9 +13,9 @@
 
 				<div class="wrap-iten-in-cart">
 					@if(Session::has('success_message'))
-					<div class="alert alert-success">
-					<strong> Success </strong> {{Session::get('success_message')}}
-					</div>
+						<div class="alert alert-success">
+							<strong> Success </strong> {{Session::get('success_message')}}
+						</div>
 					@endif
 					@if(Cart::count() > 0)
 
@@ -33,11 +33,11 @@
 							<div class="quantity">
 								<div class="quantity-input">
 									<input type="text" name="product-quatity" value="{{$item->qty}}" data-max="120" pattern="[0-9]*" >									
-									<a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity('{{$item->$rowid}}')"></a>
-									<a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{$item->$rowid}}')"></a>
+									<a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity('{{$item->rowId}}')"></a>
+									<a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"></a> 
 								</div>
 							</div>
-							<div class="price-field sub-total"><p class="price">${{$item->Subtotal}}</p></div>
+							<div class="price-field sub-total"><p class="price">${{$item->subtotal}}</p></div>
 							<div class="delete">
 								<a href="#" class="btn btn-delete" title="">
 									<span>Delete from your cart</span>
@@ -48,14 +48,14 @@
 						@endforeach											
 					</ul>
 					@else
-					<p>No items in Cart </p>
+						<p>No items in Cart </p>
 					@endif
 				</div>
 
 				<div class="summary">
 					<div class="order-summary">
 						<h4 class="title-box">Order Summary</h4>
-						<p class="summary-info"><span class="title">Subtotal</span><b class="index">${{Cart::Subtotal()}}</b></p>
+						<p class="summary-info"><span class="title">Subtotal</span><b class="index">${{Cart::subtotal()}}</b></p>
 						<p class="summary-info"><span class="title">Tax</span><b class="index">${{Cart::tax()}}</b></p>
 						<p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
 						<p class="summary-info total-info "><span class="title">Total</span><b class="index">${{Cart::total()}}</b></p>
