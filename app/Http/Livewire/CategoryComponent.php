@@ -9,11 +9,11 @@ use Cart;
 use App\Models\Category;
 
 
-class ShopComponent extends Component
+class CategoryComponent extends Component
 {   
     public $sorting;
     public $pagesize;
-
+    public $category_slug;
     public function mount(){
         $this->sorting="default";
         $this->pagesize= 12;
@@ -45,7 +45,8 @@ class ShopComponent extends Component
 
         $categories = Category::all();
         // $products = Product::paginate(12);
-        // return $products;
-        return view('livewire.shop-component',['products'=> $products,'categories' => $categories])->layout("layouts.base");
+        //return $products;
+        return view('livewire.category-component',['products'=> $products,'categories' => $categories])->layout("layouts.base");
     }
 }
+

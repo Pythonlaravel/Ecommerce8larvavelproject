@@ -7,17 +7,27 @@ use Cart;
 
 class CartComponent extends Component
 {
-    public function increaseQuantity($rowid){
-        $product = Cart::get($rowid);
+    public function increaseQuantity($rowId){
+        $product = Cart::get($rowId);
         $qty = $product->qty + 1;
-        Cart::update($rowid,$qty);
+        Cart::update($rowId,$qty);
 
     }
-    public function decreaseQuantity($rowid){
-        $product = Cart::get($rowid);
+    public function decreaseQuantity($rowId){
+        $product = Cart::get($rowId);
         $qty = $product->qty - 1;
-        Cart::update($rowid,$qty);
+        Cart::update($rowId,$qty);
 
+    }
+
+    public function destroy($rowId)
+    {
+        Cart::remove($rowId);
+        session()->flash('Success_message','Item has been removed');
+    }
+
+    public function destroyAll(){
+        Cart::destroy();
     }
     public function render()
     {
