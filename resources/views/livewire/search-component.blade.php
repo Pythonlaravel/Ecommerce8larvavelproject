@@ -79,7 +79,7 @@
 
             </div>
             @else
-                 <p style=padding-top:30px;>no Products</p>
+                 <p style=padding-top:30px;>No Products</p>
             @endif     
 
             <div class="wrap-pagination-info">

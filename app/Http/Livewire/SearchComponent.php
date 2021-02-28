@@ -29,22 +29,22 @@ class SearchComponent extends Component
         // lets add the message inside the session. and inside the flush method lets pass thekey named as success key.
         session()->flash('success_message','Item added in Cart');
         return redirect()->route('product.cart');
-    }
+    }  
     use WithPagination;
     public function render()
     {  
         if($this->sorting=='date')
         {
-            $products = Product::where('name','like','%'.$this->search .'%')->where('category_id','like','%' .$this->product_cat_id.'%)->orderBy('created_at','DESC')->paginate($this->pagesize);
+            $products = Product::where('name','like','%'.$this->search .'%')->where('category_id','like','%' .$this->product_cat_id.'%')->orderBy('created_at','DESC')->paginate($this->pagesize);
         }
         else if($this->sorting=="price"){
-            $products = Product::where('name','like','%'.$this->search .'%')->where('category_id',$this->product_cat_id)->('regular_price','ASC')->paginate($this->pagesize);
+            $products = Product::where('name','like','%'.$this->search .'%')->where('category_id','like','%' .$this->product_cat_id.'%')->orderBy('regular_price','ASC')->paginate($this->pagesize);
         }
         else if($this->sorting=="price-desc"){
-            $products = Product::where('name','like','%'.$this->search .'%')->where('category_id',$this->product_cat_id)->('regular_price','DESC')->paginate($this->pagesize);
+            $products = Product::where('name','like','%'.$this->search .'%')->where('category_id','like','%' .$this->product_cat_id.'%')->orderBy('regular_price','DESC')->paginate($this->pagesize);
         }
         else{
-            $products = Product::where('name','like','%'.$this->search .'%')->where('category_id',$this->product_cat_id)->($this->pagesize);
+            $products = Product::where('name','like','%'.$this->search .'%')->where('category_id','like','%' .$this->product_cat_id.'%')->paginate($this->pagesize);
 
         }
 

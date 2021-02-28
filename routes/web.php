@@ -8,6 +8,7 @@ use App\Http\Livewire\Cartcomponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
+use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -32,7 +33,7 @@ Route::get('/checkout',Checkoutcomponent::class);
 
 Route::get('/product-category/{category_slug}',CategoryComponent::class)->name('product.category');
 
-
+Route::get('/search', SearchComponent::class)->name('product.search');
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
