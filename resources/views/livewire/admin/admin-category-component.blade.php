@@ -25,7 +25,7 @@
                            </tr>
                          </thead>
                          <tbody>
-                            @foeeach ($categories as #category )
+                            @foreach ($categories as $category )
                               <tr>
                               <td>{{$category->id}}</td>
                               <td>{{$category->name}}</td>

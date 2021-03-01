@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\Category;
 
 
 class AdminCategoryComponent extends Component
@@ -12,7 +13,7 @@ class AdminCategoryComponent extends Component
     public function render()
     {
         
-        $categories = category::paginate(5);
+        $categories = Category::paginate(5);
         return view('livewire.admin.admin-category-component',['categories'=>$categories])->layout('layouts.base');
     }
 }
