@@ -57,4 +57,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 // For Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     Route::get('/admin/dasboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
 });
