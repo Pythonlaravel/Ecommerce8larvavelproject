@@ -12,7 +12,12 @@
             <div class="col-ms-12">
                 <div class="panel panel-default">
                       <div class="panel-heading">
-                         All Categories
+                         <div class="row">
+                           <div class="col-md-6">All categories</div>
+                           <div class="col-md-6">
+                             <a herf="{{route('admin.addcategory')}}" class="btn btn-success pull-right">Add New</a>
+                           </div>
+                         </div>
                       </div>
                       <div class="panel-body">
                       <table class="table table-striped">
