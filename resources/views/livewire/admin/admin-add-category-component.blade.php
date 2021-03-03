@@ -5,17 +5,17 @@
             <div class="panel panel-default">
                <div class="panel-heading">
                   <div class="row">
-                    <div class="com-md-6">
+                    <div class="col-md-6">
                       Add New Category
                     </div>
                     <div class="col-md-6">
-                       <a href="{{route('admin.categories')}}" class="btn btn-success">All Category</a>
+                       <a href="{{route('admin.categories')}}" class="btn btn-success pull-right">All Categories</a>
                     </div>
                   </div>
                </div>
                <div class="panel-body">
-                       @if(session::has('message'))
-                          <div class="alert alert-success" role="alert">{{session::get('message')}}</div> 
+                       @if(Session::has('message'))
+                          <div class="alert alert-success" role="alert">{{Session::get('message')}}</div> 
                        @endif
                       <form class="form-horizontal" wire:submit.prevent="storeCategory">
                       <div class="form-group">
