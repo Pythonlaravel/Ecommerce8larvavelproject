@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
+use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Homecomponent;
 use App\Http\Livewire\Shopcomponent;
