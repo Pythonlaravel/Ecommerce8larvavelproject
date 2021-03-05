@@ -80,6 +80,9 @@
 												  <a title="categories" href="{{route('admin.categories')}}">Categories </a>
 												</li>
 												<li class="menu-item">
+													<a title="products" href="{{route('admin.products')}}">All Products</a>
+												</li>
+												<li class="menu-item">
 													<a title="Logout" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 												</li>
 												<form id="logout-form" method="POST" action="{{ route('logout')}}" >
