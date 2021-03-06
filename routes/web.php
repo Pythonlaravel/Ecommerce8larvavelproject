@@ -4,7 +4,7 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
-use App\Http\Livewire\Admin\AdminProductCategoryComponent;
+use App\Http\Livewire\Admin\AdminProductComponent;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Homecomponent;

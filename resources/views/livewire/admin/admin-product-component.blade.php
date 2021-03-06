@@ -31,8 +31,8 @@
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
-                                        <td>{{$[product->id]}}</td>
-                                        <td><img src="{{asset(assets/images/products)}}/{{$product->image}}" width="60"/></td>
+                                        <td>{{$product->id}}</td>
+                                        <td><img src="{{asset('assets/images/products')}}/{{$product->image}}" width="60"/></td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->stock_status}}</td>
                                         <td>{{$product->regular_price}}</td>
