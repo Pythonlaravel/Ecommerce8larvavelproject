@@ -7,7 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use App\Models\Product;
-//use App\Models\Carbon;
+use Carbon\Carbon;
 
 
 
@@ -55,7 +55,7 @@ use WithFileUploads;
         $product->sale_price = $this->sale_price;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
-        $imageName = "test_image.jpg";//Carbon::now()->timestamp. '.' . $this->image->extension();
+        $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
         $this->image->storeAs('products',$imageName);
         $product->image = $imageName;
         $product->category_id = $this->category_id;
