@@ -9,7 +9,7 @@ class AdminHomeSliderComponent extends Component
 {
     public function deleteSlide($slide_id)
     {
-        $slider = HomeSlider::find('$slide_id');
+        $slider = HomeSlider::find($slide_id);
         $slider->delete();
         session()->flash('message','Slider has been deleted successfully!');
     }

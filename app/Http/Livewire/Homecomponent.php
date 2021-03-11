@@ -3,12 +3,13 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\HomeSlider;
 
 class Homecomponent extends Component
 {
     public function render()
     {
         $sliders = HomeSlider::where('status',1)->get();
-        return view('livewire.HomeComponent',['sliders'=>$sliders])->layout("layouts.base");
+        return view('livewire.home-component',['sliders'=>$sliders])->layout("layouts.base");
     }
 }
