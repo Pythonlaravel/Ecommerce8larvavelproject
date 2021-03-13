@@ -212,12 +212,12 @@
                                 @foreach ($lproducts as $lproduct)
                                     <div class="product product-style-2 equal-elem ">
                                         <div class="product-thumnail">
-                                            <a href="{{route('product.details'),['slug'=>$lproducts->slug]}}" title="{{$lproduct->name}}">
+                                            <a href="{{route('product.details',['slug'=>$lproduct->slug])}}" title="{{$lproduct->name}}">
                                                 <figure><img src="{{asset('assets/images/products')}}/{{$lproduct->image}}" width="100" height="100" alt="{{$lproduct->name}}"></figure>
                                             </a>
                                         </div>
                                         <div class="product-info">
-                                            <a href="{{route('product.details'),['slug'=>$lproducts->slug]}}" class="product-name"><span>{{$lproduct->name}}</span></a>
+                                            <a href="{{route('product.details',['slug'=>$lproduct->slug])}}" class="product-name"><span>{{$lproduct->name}}</span></a>
                                             <div class="wrap-price"><span class="product-price">${{$lproduct->regular_price}}</span></div>
                                         </div>
                                     </div>
