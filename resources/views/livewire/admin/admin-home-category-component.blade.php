@@ -7,7 +7,7 @@
                         Manage Home Categories
                     </div>
                     <div class="panel-body">
-                        @if(session::has('message'))
+                        @if(Session::has('message'))
                             <div class="alert alert-success" role="alert">{{session::get('message')}}</div>
                         @endif
                         <FORM class="form-horizontal" wire:submit.prevent="updateHomeCategory">

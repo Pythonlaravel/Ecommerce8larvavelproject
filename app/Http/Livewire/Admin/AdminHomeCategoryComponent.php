@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\HomeCategory;
 
 class AdminHomeCategoryComponent extends Component
 {
