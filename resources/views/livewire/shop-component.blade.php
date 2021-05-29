@@ -241,7 +241,7 @@
 					'min' : 1,
 					'max' : 1000
 				},
-				pips:{
+				pipes:{
 					mode:'step',
 					stepped:true,
 					density:4
