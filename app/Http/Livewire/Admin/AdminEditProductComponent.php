@@ -53,8 +53,43 @@ class AdminEditProductComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+             'slug' => 'required|unique:products',
+             'short_description' => 'required',
+             'description' => 'required',
+             'regular_price' => 'required|numeric',
+             'sale_price' => 'numeric',
+             'SKU' => 'required',
+             'stock_status' => 'required',
+             'quantity' => 'required|numeric',
+             'newimage' => 'required|mimes:jpeg,png',
+             'category_id' => 'required'
+        ]);
+    }
+
     public function updateProduct()
     {
+        $this->validate([
+             'name' => 'required',
+            
+             'slug' => 'required',
+             'short_description' => 'required',
+             'description' => 'required',
+             'regular_price' => 'required|numeric',
+             'sale_price' => 'numeric',
+             'SKU' => 'required',
+             'stock_status' => 'required',
+             'quantity' => 'required|numeric',
+             'category_id' => 'required'
+             ]);
+             /*,
+             
+             'image' => 'required|mimes:jpeg,png'
+        ]);
+        */
         $product = Product::find($this->product_id);
         $product->name = $this->name;
         $product->slug = $this->slug;
@@ -76,6 +111,7 @@ class AdminEditProductComponent extends Component
         $product->category_id = $this->category_id;
         $product->save();
         session()->flash('message','Product has been updated successfully!');
+        //dd(get_defined_vars());
     }
 
     public function render()
