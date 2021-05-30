@@ -104,6 +104,7 @@
                                 <div class="col-md-4">
                                     <input type="file" class="input-file" wire:model="image" />
                                     @if($image)
+                                    {{ dd(get_defined_vars()) }}
                                         <img src="{{$image->temporaryUrl()}}" width="120" />
                                     @endif
                                     @error('image') <p class="text-danger">{{$message}}</p> @enderror
