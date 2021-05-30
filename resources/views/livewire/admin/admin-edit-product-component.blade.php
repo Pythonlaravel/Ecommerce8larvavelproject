@@ -103,7 +103,6 @@
                                     @if($newimage)
                                     
                                         <img src="{{$newimage->temporaryUrl()}}" width="120" />
-                                    
                                     @else
                                         <img src="{{asset('assets/images/products')}}/{{$image}}" width="120" />          
                                     @endif()

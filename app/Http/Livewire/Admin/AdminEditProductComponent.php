@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Livewire\WithFileUploads;
 
 
+
 class AdminEditProductComponent extends Component
 {
     use WithFileUploads;
@@ -28,7 +29,6 @@ class AdminEditProductComponent extends Component
     public $newimage;
     public $product_id;
 
-
     public function mount($product_slug)
     {
         $product = Product::where('slug',$product_slug)->first();
@@ -43,10 +43,9 @@ class AdminEditProductComponent extends Component
         $this->stock_status = $product->stock_status;
         $this->featured = $product->featured;
         $this->quantity = $product->quantity;
-        //$this->newimage = $product->image;
+        $this->image = $product->image;
         $this->category_id = $product->category_id;
         $this->product_id = $product->id;
-        $this->image = $product->image;
     }
 
     public function generateSlug()
@@ -74,8 +73,9 @@ class AdminEditProductComponent extends Component
     public function updateProduct()
     {
         $this->validate([
-            'name' => 'required',
-             'slug' => 'required|unique:products',
+             'name' => 'required',
+            
+             'slug' => 'required',
              'short_description' => 'required',
              'description' => 'required',
              'regular_price' => 'required|numeric',
@@ -83,10 +83,13 @@ class AdminEditProductComponent extends Component
              'SKU' => 'required',
              'stock_status' => 'required',
              'quantity' => 'required|numeric',
-             'image' => 'required|mimes:jpeg,png',
              'category_id' => 'required'
+             ]);
+             /*,
+             
+             'image' => 'required|mimes:jpeg,png'
         ]);
-        console.log("log should be written here");
+        */
         $product = Product::find($this->product_id);
         $product->name = $this->name;
         $product->slug = $this->slug;
@@ -101,21 +104,14 @@ class AdminEditProductComponent extends Component
         $product->quantity = $this->quantity;
         if($this->newimage)
         {
-            
             $imageName = Carbon::now()->timestamp. '.' . $this->newimage->extension();
-            $this->newimage->storeAs('products', $imageName);
+            $this->newimage->storeAs('products',$imageName);
             $product->image = $imageName;
-            
         }
         $product->category_id = $this->category_id;
-        try{
-            
-            $product->save();
-        }catch (Throwable $e) {
-            console.log("Error occurred: ". $e);
-        }
-        
+        $product->save();
         session()->flash('message','Product has been updated successfully!');
+        //dd(get_defined_vars());
     }
 
     public function render()
